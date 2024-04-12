@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public float timeToMatch = 10f;
+    public float timeToMatch = 6f;
     public float currentTimeToMatch = 0;
 
     public enum GameState
@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
         InGame,
         GameOver,
         Pause,
-        Options
+        Options,
+        InWheel,
     }
 
     public GameState gameState;
@@ -63,6 +64,13 @@ public class GameManager : MonoBehaviour
     {
         Points = 0;
         gameState = GameState.InGame;
+        OnGameStateUpdated?.Invoke(gameState);
+        currentTimeToMatch = 0;
+    }
+    public void StartGameWheel()
+    {
+        Points = 0;
+        gameState = GameState.InWheel;
         OnGameStateUpdated?.Invoke(gameState);
         currentTimeToMatch = 0;
     }

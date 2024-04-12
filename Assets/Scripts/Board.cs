@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
-    public float timeBetweenPieces = 0.05f;
+    public float timeBetweenPieces = 0.01f;
 
     public int width;
     public int height;
