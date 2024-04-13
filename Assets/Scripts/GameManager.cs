@@ -51,11 +51,13 @@ public class GameManager : MonoBehaviour
                 OnGameStateUpdated?.Invoke(gameState);
             }
         }
+   
     }
 
     public void AddPoints(int newPoints)
     {
         Points += newPoints;
+        
         OnPointsUpdated?.Invoke();
         currentTimeToMatch = 0;
     }
@@ -74,7 +76,6 @@ public class GameManager : MonoBehaviour
         OnGameStateUpdated?.Invoke(gameState);
         currentTimeToMatch = 0;
     }
-
     public void RestartGame()
     {
         Points = 0;

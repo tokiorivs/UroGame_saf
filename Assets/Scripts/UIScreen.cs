@@ -18,15 +18,16 @@ public class UIScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
+        GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated); //se suscribe al evento de cambio de estado
 
-        bool initialState = GameManager.Instance.gameState == visibleState;
+        bool initialState = GameManager.Instance.gameState == visibleState; //compara el estado actual con el estado visible
         background.enabled = initialState;
         containerRect.gameObject.SetActive(initialState);
 
     }
 
-    private void GameStateUpdated(GameManager.GameState newState)
+//estas lineas reciben el estado del juego y si es igual al estado visible muestra la pantalla
+    private void GameStateUpdated(GameManager.GameState newState) 
     {
         if (newState == visibleState)
         {
